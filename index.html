@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cybersecurity Professional Portfolio</title>
+    <title>Mihir's Professional Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Global Styles */
         :root {
-            --dark-bg: #0a192f;
-            --dark-secondary: #112240;
-            --accent: #64ffda;
-            --text-primary: #e6f1ff;
-            --text-secondary: #8892b0;
+            --dark-bg: #0b0f1a;
+            --dark-secondary: #131a2b;
+            --accent: #1db7ff;
+            --text-primary: #ffffff;
+            --text-secondary: #9bb0d3;
             --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
         }
         
@@ -47,6 +47,14 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
         
         h1, h2, h3 {
@@ -78,6 +86,7 @@
             margin-bottom: 15px;
             font-size: 1.1rem;
             line-height: 1.8;
+            color: var(--text-secondary);
         }
         
         /* Navigation */
@@ -85,7 +94,7 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background-color: rgba(10, 25, 47, 0.9);
+            background-color: rgba(11, 15, 26, 0.95);
             backdrop-filter: blur(10px);
             z-index: 1000;
             padding: 20px 0;
@@ -94,7 +103,7 @@
         
         nav.scrolled {
             padding: 15px 0;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
         }
         
         nav .container {
@@ -160,8 +169,8 @@
             width: 100%;
             height: 100%;
             background-image: 
-                linear-gradient(rgba(17, 34, 64, 0.5) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(17, 34, 64, 0.5) 1px, transparent 1px);
+                linear-gradient(rgba(19, 26, 43, 0.5) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(19, 26, 43, 0.5) 1px, transparent 1px);
             background-size: 30px 30px;
             z-index: -1;
             opacity: 0.3;
@@ -170,8 +179,8 @@
         .profile-container {
             position: relative;
             margin: 0 auto 40px;
-            width: 220px;
-            height: 220px;
+            width: 275px;
+            height: 275px;
         }
         
         .profile-pic {
@@ -188,20 +197,17 @@
             position: relative;
             overflow: hidden;
             border: 2px solid var(--accent);
-        }
-        
-        .profile-pic::before {
-            content: 'Your Photo Here';
-            position: absolute;
-            text-align: center;
-            padding: 0 10px;
+            background-image: url('https://avatars.githubusercontent.com/u/227625373?v=4');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
         }
         
         .profile-pic::after {
             content: '';
             position: absolute;
-            width: 250px;
-            height: 250px;
+            width: 300px;
+            height: 300px;
             border-radius: 50%;
             border: 2px solid var(--accent);
             opacity: 0.2;
@@ -217,7 +223,7 @@
             font-size: clamp(1.2rem, 3vw, 1.8rem);
             color: var(--accent);
             margin: 30px 0;
-            padding: 0 20px;
+            padding: 0 05px;
             position: relative;
             display: inline-block;
         }
@@ -238,6 +244,7 @@
             color: var(--text-secondary);
             font-size: 1.5rem;
             animation: bounce 2s infinite;
+            cursor: pointer;
         }
         
         @keyframes bounce {
@@ -259,7 +266,7 @@
             padding: 25px;
             border-radius: 8px;
             transition: var(--transition);
-            border: 1px solid rgba(100, 255, 218, 0.1);
+            border: 1px solid rgba(29, 183, 255, 0.1);
         }
         
         .skill-category:hover {
@@ -313,7 +320,7 @@
             height: 15px;
             border-radius: 50%;
             background-color: var(--accent);
-            box-shadow: 0 0 0 4px rgba(100, 255, 218, 0.2);
+            box-shadow: 0 0 0 4px rgba(29, 183, 255, 0.2);
         }
         
         .timeline-item h3 {
@@ -350,7 +357,7 @@
             border-radius: 8px;
             transition: var(--transition);
             height: 100%;
-            border: 1px solid rgba(100, 255, 218, 0.1);
+            border: 1px solid rgba(29, 183, 255, 0.1);
             position: relative;
             overflow: hidden;
         }
@@ -382,6 +389,22 @@
             font-size: 1.3rem;
         }
         
+        .project-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-block;
+            transition: var(--transition);
+        }
+        
+        .project-link:hover {
+            transform: translateX(5px);
+        }
+        
+        .project-link i {
+            margin-left: 5px;
+        }
+        
         /* Contact Section */
         .contact-container {
             display: grid;
@@ -395,29 +418,26 @@
             gap: 25px;
         }
         
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            padding: 20px;
-            background-color: var(--dark-secondary);
-            border-radius: 8px;
-            transition: var(--transition);
-        }
-        
-        .contact-item:hover {
-            transform: translateX(10px);
-        }
-        
-        .contact-icon {
-            width: 50px;
-            height: 50px;
-            background-color: rgba(100, 255, 218, 0.1);
-            border-radius: 50%;
+        .contact-btn {
             display: flex;
             align-items: center;
             justify-content: center;
+            gap: 15px;
+            padding: 15px 20px;
+            background-color: var(--dark-secondary);
             color: var(--accent);
+            font-weight: 500;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .contact-btn:hover {
+            background-color: rgba(29, 183, 255, 0.1);
+            transform: translateY(-3px);
+        }
+        
+        .contact-btn i {
             font-size: 1.2rem;
         }
         
@@ -427,7 +447,7 @@
             padding: 15px;
             margin-bottom: 20px;
             background-color: var(--dark-secondary);
-            border: 1px solid rgba(100, 255, 218, 0.1);
+            border: 1px solid rgba(29, 183, 255, 0.1);
             border-radius: 4px;
             color: var(--text-primary);
             transition: var(--transition);
@@ -437,7 +457,7 @@
         .contact-form textarea:focus {
             outline: none;
             border-color: var(--accent);
-            box-shadow: 0 0 0 2px rgba(100, 255, 218, 0.2);
+            box-shadow: 0 0 0 2px rgba(29, 183, 255, 0.2);
         }
         
         .contact-form textarea {
@@ -468,42 +488,47 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(100, 255, 218, 0.2), transparent);
+            background: linear-gradient(90deg, transparent, rgba(29, 183, 255, 0.2), transparent);
             transition: var(--transition);
         }
         
         .btn:hover {
-            background-color: rgba(100, 255, 218, 0.1);
-            box-shadow: 0 0 15px rgba(100, 255, 218, 0.3);
+            background-color: rgba(29, 183, 255, 0.1);
+            box-shadow: 0 0 15px rgba(29, 183, 255, 0.3);
         }
         
         .btn:hover::before {
             left: 100%;
         }
         
+        /* Toast notification */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--dark-secondary);
+            color: var(--text-primary);
+            padding: 15px 25px;
+            border-radius: 4px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            border-left: 4px solid var(--accent);
+            transform: translateY(100px);
+            opacity: 0;
+            transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+            z-index: 1000;
+        }
+        
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
         /* Footer */
         footer {
             text-align: center;
             padding: 30px 0;
-            border-top: 1px solid rgba(136, 146, 176, 0.2);
-        }
-        
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-bottom: 20px;
-        }
-        
-        .social-links a {
+            border-top: 1px solid rgba(155, 176, 211, 0.2);
             color: var(--text-secondary);
-            font-size: 1.5rem;
-            transition: var(--transition);
-        }
-        
-        .social-links a:hover {
-            color: var(--accent);
-            transform: translateY(-5px);
         }
         
         /* Responsive Design */
@@ -515,6 +540,15 @@
             
             .nav-links {
                 display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                background: none;
+                border: none;
+                color: var(--text-primary);
+                font-size: 1.5rem;
+                cursor: pointer;
             }
         }
         
@@ -532,6 +566,35 @@
                 width: 180px;
                 height: 180px;
             }
+            
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--dark-bg);
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 15px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                background: none;
+                border: none;
+                color: var(--text-primary);
+                font-size: 1.5rem;
+                cursor: pointer;
+            }
         }
     </style>
 </head>
@@ -540,6 +603,7 @@
     <nav id="navbar">
         <div class="container">
             <div class="logo">Mihir Trivedi</div>
+
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
@@ -556,54 +620,51 @@
         <div class="cyber-grid"></div>
         <div class="container">
             <div class="profile-container">
-                <div class="profile-pic"></div>
+                <div class="profile-pic" style="background-image: url('https://avatars.githubusercontent.com/u/227625373?v=4')"></div>
             </div>
             <h1>Mihir Trivedi</h1>
-             <p class="motto">"Threat Hunter, Policy Crafter, Cloud Builder: The Security Engineer for the Modern World."</p>
-                <a href="#contact" class="btn">Get In Touch</a>
+            <p class="motto">Threat Hunter, Policy Crafter, Cloud Builder: The Security Engineer for the Modern World.</p>
+            <a href="#contact" class="btn">Get In Touch</a>
         </div>
-        <div class="scroll-down">
+        <div class="scroll-down" onclick="scrollToSection('about')">
             <i class="fas fa-chevron-down"></i>
         </div>
     </section>
 
     <!-- About Section -->
     <section id="about">
-         <div class="container">
+        <div class="container">
             <h2 class="section-title">About Me</h2>
             <div class="about-content">
-                <div class="about-text">
-                    <p>I thrive on challenges that push me to think, adapt, and learn. As a Cybersecurity adept, I’ve immersed myself in SOC operations, threat intelligence, and security architecture, gaining hands-on experience with Splunk, Wireshark, Nmap, Docker, and Python. Each project I tackle sharpens my skills and reinforces my approach: combine technical depth with strategic thinking to protect organizations while enabling their growth.</p>
+                <p>I thrive on challenges that push me to think, adapt, and learn. As a Cybersecurity adept, I've immersed myself in SOC operations, threat intelligence, and security architecture, gaining hands-on experience with Splunk, Wireshark, Nmap, Docker, and Python. Each project I tackle sharpens my skills and reinforces my approach: combine technical depth with strategic thinking to protect organizations while enabling their growth.</p>
+                <p>Outside the digital battlefield, I'm equally passionate about real-world exploration. I've led treks, honing leadership, planning, and risk-assessment skills that often translate into how I approach complex security challenges. The ability to adapt quickly isn't just a skill — it's a fundamental instinct for survival, whether on a trip or in the ever-evolving landscape of cybersecurity. I'm also an avid reader — because I believe today's reader is tomorrow's leader.</p>
+                <p>I'm an early riser, finding my focus at the break of dawn, and I constantly challenge myself to communicate and present ideas effectively — whether it's through team briefings or personal exercises to refine my thought process. My philosophy is simple: embrace every challenge, learn constantly, and balance technical mastery with human insight. After all, if you secure the human link, half the cyber battles are already won.</p>
 
-<p>Outside the digital battlefield, I’m equally passionate about real-world exploration. I’ve led treks, honing leadership, planning, and risk-assessment skills that often translate into how I approach complex security challenges. The ability to adapt quickly isn’t just a skill — it’s a fundamental instinct for survival, whether on a trip or in the ever-evolving landscape of cybersecurity. I’m also an avid reader — because I believe today’s reader is tomorrow’s leader.</p>
-
-<p>I’m an early riser, finding my focus at the break of dawn, and I constantly challenge myself to communicate and present ideas effectively — whether it’s through team briefings or personal exercises to refine my thought process. My philosophy is simple: embrace every challenge, learn constantly, and balance technical mastery with human insight. After all, if you secure the human link, half the cyber battles are already won.</p>
-                </div>
-            
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>🛡️ SIEM & SOC Tools</h3>
-                    <p>Splunk (SPL), IBM QRadar, Microsoft Azure Sentinel</p>
-                </div>
-                <div class="skill-category">
-                    <h3>🔍 Threat Detection & Analysis</h3>
-                    <p>CrowdStrike Falcon (EDR), Snort, Suricata, Wireshark, TCPDump, MITRE ATT&CK, Shodan, OSINT, Tenable.io, Nessus</p>
-                </div>
-                <div class="skill-category">
-                    <h3>☁️ Cloud & DevSecOps</h3>
-                    <p>AWS, Microsoft Azure, Kubernetes Security, Docker, Terraform, Python, Bash, PowerShell, Burp Suite, OWASP Top 10</p>
-                </div>
-                <div class="skill-category">
-                    <h3>🏢 Governance, Risk & Compliance (GRC)</h3>
-                    <p>NIST CSF, NIST 800-53, ISO 27001, PCI-DSS, GDPR, HIPAA, Control Mapping, Gap Analysis, Audit Support</p>
-                </div>
-                <div class="skill-category">
-                    <h3>🔐 Network & Access Security</h3>
-                    <p>FortiGate, Palo Alto, Zero Trust Architecture, Network Segmentation</p>
-                </div>
-                <div class="skill-category">
-                    <h3>🧠 Human-Centric Security</h3>
-                    <p>Security Awareness Training, Phishing Simulation Campaigns, Cyber Awareness Workshops</p>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>🛡️ SIEM & SOC Tools</h3>
+                        <p>Splunk, IBM QRadar, Microsoft Azure Sentinel</p>
+                    </div>
+                    <div class="skill-category">
+                        <h3>🔍 Threat Detection & Analysis</h3>
+                        <p>CrowdStrike Falcon (EDR), Snort, Suricata, Wireshark, TCPDump, MITRE ATT&CK, Shodan, OSINT, Tenable.io, Nessus</p>
+                    </div>
+                    <div class="skill-category">
+                        <h3>☁️ Cloud & DevSecOps</h3>
+                        <p>AWS, Microsoft Azure, Kubernetes Security, Docker, Terraform, Python, Bash, PowerShell, Burp Suite, OWASP Top 10</p>
+                    </div>
+                    <div class="skill-category">
+                        <h3>🏢 Governance, Risk & Compliance (GRC)</h3>
+                        <p>NIST CSF, NIST 800-53, ISO 27001, PCI-DSS, GDPR, HIPAA, Control Mapping, Gap Analysis, Audit Support</p>
+                    </div>
+                    <div class="skill-category">
+                        <h3>🔐 Network & Access Security</h3>
+                        <p>FortiGate, Palo Alto, Zero Trust Architecture, Network Segmentation</p>
+                    </div>
+                    <div class="skill-category">
+                        <h3>🧠 Human-Centric Security</h3>
+                        <p>Security Awareness Training, Phishing Simulation Campaigns, Cyber Awareness Workshops</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -616,19 +677,19 @@
             <div class="timeline">
                 <div class="timeline-item">
                     <h3>Information Technology Assistant</h3>
-                    <span class="date">Feb 2024 - Jan 2025 · 1 yr</span>
+                    <span class="date">Feb 2024 - Jan 2025r</span>
                     <span class="location">Boston, Massachusetts</span>
                     <p>Northeastern University</p>
                 </div>
                 <div class="timeline-item">
                     <h3>Security Operations Center Analyst</h3>
-                    <span class="date">Jan 2023 - Sep 2023 · 9 mos</span>
+                    <span class="date">Jan 2023 - Sep 2023</span>
                     <span class="location">Ahmedabad, India</span>
                     <p>Adani Enterprises Limited</p>
                 </div>
                 <div class="timeline-item">
                     <h3>GRC Consultant</h3>
-                    <span class="date">Aug 2022 - Dec 2022 · 5 mos</span>
+                    <span class="date">Aug 2022 - Dec 2022</span>
                     <span class="location">Ahmedabad, India</span>
                     <p>Securis360 Inc.</p>
                 </div>
@@ -672,47 +733,69 @@
             <div class="projects-grid">
                 <div class="project-card">
                     <h3>SOC Log Hunting With Splunk and MITRE ATT&CK alignment</h3>
-                    <a href="#" class="project-link">View on GitHub <i class="fas fa-arrow-right"></i></a>
+                    <a href="https://github.com/whoami-mihir/SOC-Log-Hunting" target="_blank" class="project-link">
+                        View on GitHub <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
                 <div class="project-card">
                     <h3>Threat Detection Lab with Snort and Wireshark</h3>
-                    <a href="#" class="project-link">View on GitHub <i class="fas fa-arrow-right"></i></a>
+                    <a href="https://github.com/whoami-mihir/Threat-Detection-Snort-Wireshark" target="_blank" class="project-link">
+                        View on GitHub <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
                 <div class="project-card">
                     <h3>Azure Sentinel KQL Library & Threat Monitoring</h3>
-                    <a href="#" class="project-link">View on GitHub <i class="fas fa-arrow-right"></i></a>
+                    <a href="https://github.com/whoami-mihir/Azure-Sentinel-Threat-Monitoring" target="_blank" class="project-link">
+                        View on GitHub <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
                 <div class="project-card">
-                    <h3>Firewall microsegmentation & MFA integration</h3>
-                    <a href="#" class="project-link">View on GitHub <i class="fas fa-arrow-right"></i></a>
+                    <h3>Zero Trust Architecture Microsegmentation & Firewall microsegmentation</h3>
+                    <a href="https://github.com/whoami-mihir/Zero-Trust-Architecture-Microsegmentation" target="_blank" class="project-link">
+                        View on GitHub <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
                 <div class="project-card">
                     <h3>OWASP Top10 Attack and Defense</h3>
-                    <a href="#" class="project-link">View on GitHub <i class="fas fa-arrow-right"></i></a>
+                    <a href="https://github.com/whoami-mihir/OWASP-Top10-Attack-Defense" target="_blank" class="project-link">
+                        View on GitHub <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
                 <div class="project-card">
                     <h3>Automated Vulnerability Management with Nessus and Python Script</h3>
-                    <a href="#" class="project-link">View on GitHub <i class="fas fa-arrow-right"></i></a>
+                    <a href="https://github.com/whoami-mihir/Automated-VulnMgmt-Nessus-Python" target="_blank" class="project-link">
+                        View on GitHub <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
                 <div class="project-card">
                     <h3>Digital Forensics & Incident Response Playbook</h3>
-                    <a href="#" class="project-link">View on GitHub <i class="fas fa-arrow-right"></i></a>
+                    <a href="https://github.com/whoami-mihir/DFIR-Playbook" target="_blank" class="project-link">
+                        View on GitHub <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
                 <div class="project-card">
                     <h3>Policy Drafting: AI in Workplace</h3>
-                    <a href="#" class="project-link">View on GitHub <i class="fas fa-arrow-right"></i></a>
+                    <a href="https://github.com/whoami-mihir/Policy-AI-In-Workplace" target="_blank" class="project-link">
+                        View on GitHub <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
                 <div class="project-card">
-                    <h3>Control Mapping for PCI-NIST-ISO</h3>
-                    <a href="#" class="project-link">View on GitHub <i class="fas fa-arrow-right"></i></a>
+                    <h3>Control Mapping for NIST to ISO</h3>
+                    <a href="https://github.com/whoami-mihir/Control-Mapping-PCI-NIST-ISO" target="_blank" class="project-link">
+                        View on GitHub <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
                 <div class="project-card">
-                    <h3>Phishing Simulation & User Awareness Training</h3>
-                    <a href="#" class="project-link">View on GitHub <i class="fas fa-arrow-right"></i></a>
+                    <h3>Phishing simulation & User Training</h3>
+                    <a href="https://github.com/whoami-mihir/Phishing-Sim-User-Training" target="_blank" class="project-link">
+                        View on GitHub <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
                 <div class="project-card">
-                    <h3>Biometric Lock Prototype with MFA</h3>
-                    <a href="#" class="project-link">View on GitHub <i class="fas fa-arrow-right"></i></a>
+                    <h3>Biometric Lock with MFA - A Prototype</h3>
+                    <a href="https://github.com/whoami-mihir/Biometric-Lock-Prototype" target="_blank" class="project-link">
+                        View on GitHub <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
             </div>
         </div>
@@ -724,40 +807,22 @@
             <h2>Contact Me</h2>
             <div class="contact-container">
                 <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div>
-                            <h3>Email</h3>
-                            <p>trivedi.mih@northeastern.edu</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fab fa-linkedin-in"></i>
-                        </div>
-                        <div>
-                            <h3>LinkedIn</h3>
-                            <p>https://www.linkedin.com/in/whoami-mihir</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fab fa-github"></i>
-                        </div>
-                        <div>
-                            <h3>GitHub</h3>
-                            <p>github.com/whoami-mihir</p>
-                        </div>
-                    </div>
+                    <a href="mailto:trivedi.mih@northeastern.edu" class="contact-btn">
+                        <i class="fas fa-envelope"></i>Email Me
+                    </a>
+                    <a href="https://www.linkedin.com/in/whoami-mihir" target="_blank" class="contact-btn">
+                        <i class="fab fa-linkedin-in"></i>LinkedIn
+                    </a>
+                    <a href="https://github.com/whoami-mihir" target="_blank" class="contact-btn">
+                        <i class="fab fa-github"></i>GitHub
+                    </a>
                 </div>
                 <div class="contact-form">
-                    <form>
-                        <input type="text" placeholder="Your Name" required>
-                        <input type="email" placeholder="Your Email" required>
-                        <input type="text" placeholder="Subject" required>
-                        <textarea placeholder="Your Message" required></textarea>
+                    <form id="contactForm" action="https://formspree.io/f/mjvnzzqk" method="POST">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                        <input type="email" name="email" placeholder="Your Email" required>
+                        <input type="text" name="subject" placeholder="Subject" required>
+                        <textarea name="message" placeholder="Your Message" required></textarea>
                         <button type="submit" class="btn">Send Message</button>
                     </form>
                 </div>
@@ -765,16 +830,16 @@
         </div>
     </section>
 
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        Message sent successfully!
+    </div>
+
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="social-links">
-                <a href="#"><i class="fab fa-github"></i></a>
-                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fas fa-envelope"></i></a>
-            </div>
-            <p>&copy; 2025 Mihir trivedi. All rights reserved.</p>
+            <p>&copy; 2025 Mihir Trivedi. All rights reserved.</p>
+            <p id="visitor-count"></p>
         </div>
     </footer>
 
@@ -787,6 +852,109 @@
             } else {
                 navbar.classList.remove('scrolled');
             }
+            
+            // Section reveal animation
+            document.querySelectorAll('section').forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                if (window.scrollY > sectionTop - window.innerHeight + 100) {
+                    section.classList.add('visible');
+                }
+            });
+        });
+
+        // Visitor count using localStorage
+        let visits = localStorage.getItem('visits') || 0;
+        visits++;
+        localStorage.setItem('visits', visits);
+        document.getElementById('visitor-count').textContent = `Visitor Count: ${visits}`;
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    document.querySelector('.nav-links').classList.remove('active');
+                }
+            });
+        });
+
+        // Scroll to section function
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                window.scrollTo({
+                    top: section.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => {
+                document.querySelector('.nav-links').classList.toggle('active');
+            });
+        }
+
+        // Form submission handling
+        const contactForm = document.getElementById('contactForm');
+        const toast = document.getElementById('toast');
+        
+        if (contactForm) {
+            contactForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                const formData = new FormData(contactForm);
+                
+                try {
+                    const response = await fetch(contactForm.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+                    
+                    if (response.ok) {
+                        // Show success toast
+                        toast.classList.add('show');
+                        contactForm.reset();
+                        
+                        // Hide toast after 3 seconds
+                        setTimeout(() => {
+                            toast.classList.remove('show');
+                        }, 3000);
+                    } else {
+                        throw new Error('Form submission failed');
+                    }
+                } catch (error) {
+                    alert('There was a problem sending your message. Please try again later.');
+                }
+            });
+        }
+
+        // Initialize section visibility on page load
+        window.addEventListener('load', () => {
+            document.querySelectorAll('section').forEach((section, index) => {
+                // Add slight delay for sequential animation
+                setTimeout(() => {
+                    if (section.getBoundingClientRect().top < window.innerHeight - 100) {
+                        section.classList.add('visible');
+                    }
+                }, index * 100);
+            });
         });
     </script>
 </body>

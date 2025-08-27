@@ -206,8 +206,8 @@
         .profile-pic::after {
             content: '';
             position: absolute;
-            width: 300px;
-            height: 300px;
+            width: 305px;
+            height: 305px;
             border-radius: 50%;
             border: 2px solid var(--accent);
             opacity: 0.2;
@@ -309,18 +309,6 @@
         
         .timeline-item:hover {
             transform: translateX(10px);
-        }
-        
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -38px;
-            top: 30px;
-            width: 15px;
-            height: 15px;
-            border-radius: 50%;
-            background-color: var(--accent);
-            box-shadow: 0 0 0 4px rgba(29, 183, 255, 0.2);
         }
         
         .timeline-item h3 {
@@ -839,7 +827,6 @@
     <footer>
         <div class="container">
             <p>&copy; 2025 Mihir Trivedi. All rights reserved.</p>
-            <p id="visitor-count"></p>
         </div>
     </footer>
 
@@ -863,11 +850,6 @@
             });
         });
 
-        // Visitor count using localStorage
-        let visits = localStorage.getItem('visits') || 0;
-        visits++;
-        localStorage.setItem('visits', visits);
-        document.getElementById('visitor-count').textContent = `Visitor Count: ${visits}`;
 
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {

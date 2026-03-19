@@ -29,19 +29,9 @@
     }
     *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
     html { scroll-behavior:smooth; }
-    body {
-      background:var(--bg); color:var(--text);
-      font-family:var(--sans); font-weight:300;
-      line-height:1.7; overflow-x:hidden;
-    }
-    body::after {
-      content:''; position:fixed; inset:0;
-      background-image:radial-gradient(circle, rgba(148,163,184,.055) 1px, transparent 1px);
-      background-size:28px 28px;
-      pointer-events:none; z-index:0;
-    }
+    body { background:var(--bg); color:var(--text); font-family:var(--sans); font-weight:300; line-height:1.7; overflow-x:hidden; }
+    body::after { content:''; position:fixed; inset:0; background-image:radial-gradient(circle, rgba(148,163,184,.055) 1px, transparent 1px); background-size:28px 28px; pointer-events:none; z-index:0; }
 
-    /* NAV */
     nav { position:fixed; top:0; width:100%; z-index:100; padding:20px 0; transition:all .3s; border-bottom:1px solid transparent; }
     nav.scrolled { background:rgba(7,9,15,.96); backdrop-filter:blur(20px); border-bottom-color:var(--br); padding:13px 0; }
     .w { width:90%; max-width:1080px; margin:0 auto; position:relative; z-index:1; }
@@ -53,7 +43,6 @@
     .nl a:hover { color:var(--text); }
     .mb { display:none; background:none; border:none; color:var(--text); font-size:1.2rem; cursor:pointer; }
 
-    /* LAYOUT */
     section { padding:100px 0; }
     .lbl { font-size:.67rem; letter-spacing:.26em; text-transform:uppercase; color:var(--blue); margin-bottom:7px; font-weight:500; }
     .hdg { font-size:clamp(1.55rem,3.2vw,2.1rem); font-weight:700; color:var(--text); line-height:1.2; margin-bottom:40px; letter-spacing:-.02em; }
@@ -63,21 +52,14 @@
     .hero-glow { position:absolute; width:520px; height:520px; border-radius:50%; background:radial-gradient(circle, rgba(59,130,246,.04) 0%, transparent 70%); top:50%; left:50%; transform:translate(-50%,-50%); pointer-events:none; }
     .hero-inner { display:grid; grid-template-columns:auto 1fr; gap:56px; align-items:center; }
 
-    /* PHOTO — primary: local file photo.jpg in same repo, fallback: GitHub avatar */
     .photo-wrap { position:relative; flex-shrink:0; }
-    .photo-wrap img {
-      width:210px; height:210px; border-radius:6px;
-      object-fit:cover; object-position:center top;
-      display:block; border:1px solid var(--br);
-      filter:grayscale(8%) contrast(1.05);
-      background:var(--s2);
-    }
+    .photo-wrap img { width:210px; height:210px; border-radius:6px; object-fit:cover; object-position:center top; display:block; border:1px solid var(--br); filter:grayscale(8%) contrast(1.05); background:var(--s2); }
     .photo-wrap::before { content:''; position:absolute; inset:-5px; border:1px solid rgba(59,130,246,.14); border-radius:9px; pointer-events:none; }
     .photo-wrap::after { content:''; position:absolute; bottom:-10px; right:-10px; width:55%; height:55%; border-right:1px solid rgba(59,130,246,.32); border-bottom:1px solid rgba(59,130,246,.32); }
 
     .h-eye { font-size:.68rem; letter-spacing:.24em; text-transform:uppercase; color:var(--blue); margin-bottom:13px; font-weight:500; }
     .h-name { font-size:clamp(2.4rem,5vw,3.8rem); font-weight:700; color:var(--text); line-height:1.0; margin-bottom:14px; letter-spacing:-.03em; }
-    .h-tagline { font-size:clamp(.92rem,1.6vw,1.05rem); font-weight:400; color:var(--sub); max-width:480px; margin-bottom:26px; line-height:1.7; }
+    .h-tagline { font-size:clamp(.92rem,1.6vw,1.05rem); font-weight:400; color:var(--sub); max-width:480px; margin-bottom:14px; line-height:1.7; }
     .h-tagline strong { color:var(--text); font-weight:500; }
     .h-pills { display:flex; flex-wrap:wrap; gap:7px; margin-bottom:30px; }
     .pill { font-size:.67rem; letter-spacing:.09em; text-transform:uppercase; padding:5px 12px; border-radius:3px; font-weight:400; }
@@ -153,30 +135,11 @@
     .p-link { font-size:.7rem; letter-spacing:.09em; text-transform:uppercase; color:var(--blue); text-decoration:none; font-weight:500; display:inline-flex; align-items:center; gap:6px; transition:gap .2s; }
     .p-link:hover { gap:11px; }
 
-    /* MORE PROJECTS BANNER */
-    .more-projects {
-      margin-top:2px;
-      background:var(--s1);
-      border:1px solid var(--br);
-      padding:24px 28px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      flex-wrap:wrap;
-      gap:16px;
-      transition:border-color .2s;
-    }
+    .more-projects { margin-top:2px; background:var(--s1); border:1px solid var(--br); padding:24px 28px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px; transition:border-color .2s; }
     .more-projects:hover { border-color:var(--brh); }
     .more-projects p { font-size:.85rem; color:var(--sub); line-height:1.6; }
     .more-projects p strong { color:var(--text); font-weight:500; }
-    .more-projects a {
-      font-size:.74rem; letter-spacing:.1em; text-transform:uppercase;
-      color:var(--blue); text-decoration:none; font-weight:500;
-      display:inline-flex; align-items:center; gap:7px;
-      border:1px solid rgba(59,130,246,.3); padding:8px 16px;
-      border-radius:3px; transition:all .2s; white-space:nowrap;
-      background:var(--blue-d);
-    }
+    .more-projects a { font-size:.74rem; letter-spacing:.1em; text-transform:uppercase; color:var(--blue); text-decoration:none; font-weight:500; display:inline-flex; align-items:center; gap:7px; border:1px solid rgba(59,130,246,.3); padding:8px 16px; border-radius:3px; transition:all .2s; white-space:nowrap; background:var(--blue-d); }
     .more-projects a:hover { background:rgba(59,130,246,.18); }
 
     /* CERTS */
@@ -224,8 +187,10 @@
     .toast { position:fixed; bottom:20px; right:20px; background:var(--s3); color:var(--text); padding:11px 18px; border:1px solid rgba(16,185,129,.25); border-radius:3px; font-size:.78rem; transform:translateY(70px); opacity:0; transition:all .3s ease; z-index:200; }
     .toast.show { transform:translateY(0); opacity:1; }
 
-    .rev { opacity:0; transform:translateY(18px); transition:opacity .55s ease, transform .55s ease; }
+    /* REVEAL — IntersectionObserver handles this; CSS just sets initial state */
+    .rev { opacity:0; transform:translateY(16px); transition:opacity .5s ease, transform .5s ease; }
     .rev.on { opacity:1; transform:translateY(0); }
+    @media (prefers-reduced-motion: reduce) { .rev { opacity:1; transform:none; transition:none; } }
 
     @media(max-width:960px) {
       .hero-inner { grid-template-columns:1fr; text-align:center; }
@@ -252,7 +217,6 @@
 </head>
 <body>
 
-<!-- NAV -->
 <nav id="nav">
   <div class="w">
     <div class="logo">Mihir <em>Trivedi</em></div>
@@ -274,34 +238,25 @@
   <div class="hero-glow"></div>
   <div class="w">
     <div class="hero-inner">
-
-      <!--
-        PHOTO NOTE:
-        For guaranteed display, save your headshot as "photo.jpg"
-        in the same GitHub repo folder as this index.html,
-        then change the src below to just: src="photo.jpg"
-        The GitHub avatar URL is the fallback if the local file isn't present.
-      -->
       <div class="photo-wrap">
+        <!--
+          To guarantee photo loads: save your headshot as photo.jpg
+          in the same repo folder and change src to: src="photo.jpg"
+          Current src is GitHub avatar with fallback to GitHub profile picture.
+        -->
         <img
           src="https://avatars.githubusercontent.com/u/227625373?v=4"
           alt="Mihir Trivedi"
-          width="210"
-          height="210"
+          width="210" height="210"
           referrerpolicy="no-referrer"
           onerror="this.onerror=null;this.src='https://github.com/Mihir-CySec.png?size=210'"
         />
       </div>
-
       <div>
         <p class="h-eye">IT Audit · Technology Risk · GRC · Cloud Security</p>
         <h1 class="h-name">Mihir Trivedi</h1>
-        <p class="h-tagline">
-          <strong>The gap between what policy says and what systems do</strong> — that's where the work is.
-        </p>
-        <p class="h-tagline" style="margin-top:-12px;">
-          Cybersecurity professional with 2 years of hands-on experience in IT audit, technology risk, and GRC across enterprise, healthcare, and consulting environments.
-        </p>
+        <p class="h-tagline"><strong>The gap between what policy says and what systems do</strong> — that's where the work is.</p>
+        <p class="h-tagline">Cybersecurity professional with 2 years of hands-on experience in IT audit, technology risk, and GRC across enterprise, healthcare, and consulting environments.</p>
         <div class="h-pills">
           <span class="pill pa">ITGC · SOX · HIPAA</span>
           <span class="pill pa">NIST CSF · ISO 27001</span>
@@ -315,7 +270,6 @@
           <a href="#projects" class="btn-ghost">View Projects</a>
         </div>
       </div>
-
     </div>
   </div>
 </section>
@@ -335,22 +289,10 @@
         <p>Currently pursuing CISA certification and expanding focus on AI governance and cloud-native security controls. Open to IT Audit, Technology Risk, and GRC opportunities across technology companies, fintech and financial institutions, Big 4 advisory firms, and startups.</p>
       </div>
       <div class="stats">
-        <div class="stat">
-          <div class="sn">65+</div>
-          <div class="sl">ITGC Controls Tested</div>
-        </div>
-        <div class="stat">
-          <div class="sn">47</div>
-          <div class="sl">AWS Misconfigs Documented</div>
-        </div>
-        <div class="stat">
-          <div class="sn">40%</div>
-          <div class="sl">Critical Findings Reduced</div>
-        </div>
-        <div class="stat">
-          <div class="sn">150+</div>
-          <div class="sl">Controls Cross-Mapped</div>
-        </div>
+        <div class="stat"><div class="sn">65+</div><div class="sl">ITGC Controls Tested</div></div>
+        <div class="stat"><div class="sn">47</div><div class="sl">AWS Misconfigs Documented</div></div>
+        <div class="stat"><div class="sn">40%</div><div class="sl">Critical Findings Reduced</div></div>
+        <div class="stat"><div class="sn">150+</div><div class="sl">Controls Cross-Mapped</div></div>
       </div>
     </div>
   </div>
@@ -367,65 +309,20 @@
       <div class="sk-primary">
         <div class="sk-lbl a">GRC &amp; IT Audit — Primary</div>
         <div class="spills">
-          <span class="sp ha">IT Audit</span>
-          <span class="sp ha">ITGC</span>
-          <span class="sp ha">GRC</span>
-          <span class="sp ha">SOX</span>
-          <span class="sp ha">Risk Assessment</span>
-          <span class="sp">Control Testing</span>
-          <span class="sp">Design &amp; Operating Effectiveness</span>
-          <span class="sp">Workpaper Preparation</span>
-          <span class="sp">Audit Documentation</span>
-          <span class="sp">NIST CSF 2.0</span>
-          <span class="sp">ISO 27001</span>
-          <span class="sp">HIPAA</span>
-          <span class="sp">HITRUST CSF</span>
-          <span class="sp">PCI-DSS</span>
-          <span class="sp">SOC 2</span>
-          <span class="sp">GDPR</span>
-          <span class="sp">NIST AI RMF</span>
-          <span class="sp">AI Governance</span>
-          <span class="sp">Gap Analysis</span>
-          <span class="sp">Third-Party Risk</span>
-          <span class="sp">Vendor Risk Management</span>
-          <span class="sp">ServiceNow GRC</span>
-          <span class="sp">AuditBoard</span>
-          <span class="sp">Excel (Advanced)</span>
-          <span class="sp">SQL</span>
-          <span class="sp">Python</span>
+          <span class="sp ha">IT Audit</span><span class="sp ha">ITGC</span><span class="sp ha">GRC</span><span class="sp ha">SOX</span><span class="sp ha">Risk Assessment</span><span class="sp">Control Testing</span><span class="sp">Design &amp; Operating Effectiveness</span><span class="sp">Workpaper Preparation</span><span class="sp">Audit Documentation</span><span class="sp">NIST CSF 2.0</span><span class="sp">ISO 27001</span><span class="sp">HIPAA</span><span class="sp">HITRUST CSF</span><span class="sp">PCI-DSS</span><span class="sp">SOC 2</span><span class="sp">GDPR</span><span class="sp">NIST AI RMF</span><span class="sp">AI Governance</span><span class="sp">Gap Analysis</span><span class="sp">Third-Party Risk</span><span class="sp">Vendor Risk Management</span><span class="sp">ServiceNow GRC</span><span class="sp">AuditBoard</span><span class="sp">Excel (Advanced)</span><span class="sp">SQL</span><span class="sp">Python</span>
         </div>
       </div>
       <div class="sk-supporting">
         <div class="sk-block">
           <div class="sk-lbl b">Cloud Security</div>
           <div class="spills">
-            <span class="sp hb">AWS</span>
-            <span class="sp hb">CSPM</span>
-            <span class="sp hb">Wiz</span>
-            <span class="sp">AWS IAM</span>
-            <span class="sp">Amazon S3</span>
-            <span class="sp">CloudTrail</span>
-            <span class="sp">GuardDuty</span>
-            <span class="sp">AWS Config</span>
-            <span class="sp">VPC</span>
-            <span class="sp">CIS Benchmarks</span>
-            <span class="sp">Nessus</span>
-            <span class="sp">Cloud Compliance</span>
+            <span class="sp hb">AWS</span><span class="sp hb">CSPM</span><span class="sp hb">Wiz</span><span class="sp">AWS IAM</span><span class="sp">Amazon S3</span><span class="sp">CloudTrail</span><span class="sp">GuardDuty</span><span class="sp">AWS Config</span><span class="sp">VPC</span><span class="sp">CIS Benchmarks</span><span class="sp">Nessus</span><span class="sp">Cloud Compliance</span>
           </div>
         </div>
         <div class="sk-block">
           <div class="sk-lbl c">Security Operations</div>
           <div class="spills">
-            <span class="sp hc">MITRE ATT&CK</span>
-            <span class="sp hc">Incident Response</span>
-            <span class="sp">SIEM</span>
-            <span class="sp">Threat Detection</span>
-            <span class="sp">Snort IDS</span>
-            <span class="sp">Wireshark</span>
-            <span class="sp">Network Forensics</span>
-            <span class="sp">Phishing Simulation</span>
-            <span class="sp">Tabletop Exercises</span>
-            <span class="sp">Log Analysis</span>
+            <span class="sp hc">MITRE ATT&CK</span><span class="sp hc">Incident Response</span><span class="sp">SIEM</span><span class="sp">Threat Detection</span><span class="sp">Snort IDS</span><span class="sp">Wireshark</span><span class="sp">Network Forensics</span><span class="sp">Phishing Simulation</span><span class="sp">Tabletop Exercises</span><span class="sp">Log Analysis</span>
           </div>
         </div>
       </div>
@@ -450,11 +347,7 @@
           <span class="ti-date">Jan 2026 – Present</span>
         </div>
         <div class="ti-loc"><i class="fas fa-map-marker-alt"></i> Waltham, MA · Capstone Engagement</div>
-        <div class="ti-tags">
-          <span class="ti-tag ta">IT Audit</span>
-          <span class="ti-tag tb">Cloud</span>
-          <span class="ti-tag tc">Security Ops</span>
-        </div>
+        <div class="ti-tags"><span class="ti-tag ta">IT Audit</span><span class="ti-tag tb">Cloud</span><span class="ti-tag tc">Security Ops</span></div>
         <ul class="ti-ul">
           <li>Conducted technology risk assessment evaluating <strong>2 clinical applications across 8 risk scenarios</strong> — ransomware, data breach, system availability — delivering risk register and treatment plan under HIPAA requirements</li>
           <li>Evaluated security controls against <strong>HITRUST CSF</strong>; assessed threat likelihood and impact, developed severity-prioritized recommendations strengthening HIPAA compliance posture</li>
@@ -472,10 +365,7 @@
           <span class="ti-date">Jan 2023 – Dec 2023</span>
         </div>
         <div class="ti-loc"><i class="fas fa-map-marker-alt"></i> Ahmedabad, India</div>
-        <div class="ti-tags">
-          <span class="ti-tag ta">IT Audit</span>
-          <span class="ti-tag tb">Cloud Security</span>
-        </div>
+        <div class="ti-tags"><span class="ti-tag ta">IT Audit</span><span class="ti-tag tb">Cloud Security</span></div>
         <ul class="ti-ul">
           <li>Executed test of design and operating effectiveness for <strong>65+ IT general controls</strong> across access, change, and operations; identified <strong>18 deficiencies</strong> with severity classifications and remediation timelines against NIST CSF, ISO 27001, and SOX</li>
           <li>Used <strong>Wiz CSPM</strong> to monitor AWS environment against CIS Benchmarks — identified <strong>47 critical misconfigurations</strong> including public S3 buckets, overprivileged IAM roles, and disabled CloudTrail logging; remediation playbooks reduced critical findings by <strong>40% over 6 months</strong></li>
@@ -492,11 +382,7 @@
           <span class="ti-date">Jul 2022 – Dec 2022</span>
         </div>
         <div class="ti-loc"><i class="fas fa-map-marker-alt"></i> Remote · Multi-client (US &amp; India)</div>
-        <div class="ti-tags">
-          <span class="ti-tag ta">GRC</span>
-          <span class="ti-tag tb">Cloud Policy</span>
-          <span class="ti-tag tc">Security Awareness</span>
-        </div>
+        <div class="ti-tags"><span class="ti-tag ta">GRC</span><span class="ti-tag tb">Cloud Policy</span><span class="ti-tag tc">Security Awareness</span></div>
         <ul class="ti-ul">
           <li>Assessed cloud governance maturity against <strong>SOC 2, PCI-DSS, and HIPAA</strong>; gap analysis identified deficiencies in encryption and access management; delivered prioritized compliance roadmap</li>
           <li>Developed cloud security policies including <strong>AI/ML Security Policy</strong> addressing data classification and API security, and Cloud Access Policy defining MFA and privileged access requirements aligned with NIST CSF and ISO 27001</li>
@@ -536,11 +422,7 @@
         <span class="p-track">Big 4 · IT Audit</span>
         <h3 class="p-title">SOX ITGC Audit Simulation</h3>
         <p class="p-desc">End-to-end ITGC audit simulation for a fictional public company — scoped across access management, change management, and IT operations. Includes test objectives, simulated evidence, deficiency write-ups with severity ratings, and a complete workpaper package built to the standard a first-year Big 4 associate would produce.</p>
-        <div class="p-tags">
-          <span class="ptag">SOX</span><span class="ptag">ITGC</span>
-          <span class="ptag">Workpapers</span><span class="ptag">Control Testing</span>
-          <span class="ptag">NIST CSF</span>
-        </div>
+        <div class="p-tags"><span class="ptag">SOX</span><span class="ptag">ITGC</span><span class="ptag">Workpapers</span><span class="ptag">Control Testing</span><span class="ptag">NIST CSF</span></div>
         <a href="https://github.com/Mihir-CySec/SOX-ITGC-Audit-Sim" target="_blank" class="p-link">View on GitHub <i class="fas fa-arrow-right"></i></a>
       </div>
 
@@ -549,10 +431,7 @@
         <span class="p-track">Big 4 · GRC</span>
         <h3 class="p-title">SOC 2 Type 1 Readiness Assessment</h3>
         <p class="p-desc">Readiness assessment for a fictional SaaS company across all five Trust Services Criteria. Covers gap analysis against current controls, a management-facing readiness report, and a prioritized remediation roadmap structured for external auditor review.</p>
-        <div class="p-tags">
-          <span class="ptag">SOC 2</span><span class="ptag">Trust Services Criteria</span>
-          <span class="ptag">Gap Analysis</span><span class="ptag">Readiness Report</span>
-        </div>
+        <div class="p-tags"><span class="ptag">SOC 2</span><span class="ptag">Trust Services Criteria</span><span class="ptag">Gap Analysis</span><span class="ptag">Readiness Report</span></div>
         <a href="https://github.com/Mihir-CySec/SOC-2-Type-1-Readiness-Assessment" target="_blank" class="p-link">View on GitHub <i class="fas fa-arrow-right"></i></a>
       </div>
 
@@ -561,11 +440,7 @@
         <span class="p-track">Financial Firms · Risk</span>
         <h3 class="p-title">Third-Party Vendor Risk Assessment Program</h3>
         <p class="p-desc">Complete vendor risk management framework — tiering methodology, assessment questionnaire covering security controls, business continuity, and compliance posture, scoring model, and a fully completed sample assessment for a fictional cloud vendor. Mirrors programs in place at major financial institutions.</p>
-        <div class="p-tags">
-          <span class="ptag">Vendor Risk</span><span class="ptag">Third-Party Risk</span>
-          <span class="ptag">Risk Tiering</span><span class="ptag">NIST CSF</span>
-          <span class="ptag">ISO 27001</span>
-        </div>
+        <div class="p-tags"><span class="ptag">Vendor Risk</span><span class="ptag">Third-Party Risk</span><span class="ptag">Risk Tiering</span><span class="ptag">NIST CSF</span><span class="ptag">ISO 27001</span></div>
         <a href="https://github.com/Mihir-CySec/Third-Party-Vendor-Risk-Assessment-" target="_blank" class="p-link">View on GitHub <i class="fas fa-arrow-right"></i></a>
       </div>
 
@@ -574,11 +449,7 @@
         <span class="p-track">Financial Firms · Risk</span>
         <h3 class="p-title">IT Risk Register &amp; Control Framework — Fictional Fintech</h3>
         <p class="p-desc">Technology risk register for a fictional payments company — risks identified across infrastructure, application, data, and third-party domains, rated by likelihood and impact, mapped to mitigating controls, and summarized at board level. Structured the way a junior technology risk analyst at a financial institution would present to senior stakeholders.</p>
-        <div class="p-tags">
-          <span class="ptag">Risk Register</span><span class="ptag">IT Risk</span>
-          <span class="ptag">PCI-DSS</span><span class="ptag">Control Mapping</span>
-          <span class="ptag">Fintech</span>
-        </div>
+        <div class="p-tags"><span class="ptag">Risk Register</span><span class="ptag">IT Risk</span><span class="ptag">PCI-DSS</span><span class="ptag">Control Mapping</span><span class="ptag">Fintech</span></div>
         <a href="https://github.com/Mihir-CySec/IT-Risk-Register-Control-Framework" target="_blank" class="p-link">View on GitHub <i class="fas fa-arrow-right"></i></a>
       </div>
 
@@ -587,11 +458,7 @@
         <span class="p-track">FAANG · AI Governance</span>
         <h3 class="p-title">AI Governance &amp; Risk Framework</h3>
         <p class="p-desc">Practical governance framework for a fictional company deploying generative AI products — built across NIST AI RMF and ISO 42001. Covers model risk assessment, data privacy controls, bias evaluation methodology, and incident response for AI failures. Addresses the governance gap most organizations face when AI adoption outpaces their risk programs.</p>
-        <div class="p-tags">
-          <span class="ptag">NIST AI RMF</span><span class="ptag">ISO 42001</span>
-          <span class="ptag">AI Governance</span><span class="ptag">Model Risk</span>
-          <span class="ptag">Data Privacy</span>
-        </div>
+        <div class="p-tags"><span class="ptag">NIST AI RMF</span><span class="ptag">ISO 42001</span><span class="ptag">AI Governance</span><span class="ptag">Model Risk</span><span class="ptag">Data Privacy</span></div>
         <a href="https://github.com/Mihir-CySec/AI-Governance-Risk-Framework" target="_blank" class="p-link">View on GitHub <i class="fas fa-arrow-right"></i></a>
       </div>
 
@@ -600,22 +467,15 @@
         <span class="p-track">Cross-Target · GRC</span>
         <h3 class="p-title">Multi-Framework Compliance Control Mapping</h3>
         <p class="p-desc">Excel-based control mapping methodology built for compliance teams operating across multiple frameworks simultaneously. Maps 150+ controls across NIST CSF 2.0, ISO 27001, PCI-DSS, HIPAA, and GDPR — with alignment analysis, gap identification, and a prioritized implementation roadmap that reduces redundant assessment effort.</p>
-        <div class="p-tags">
-          <span class="ptag">NIST CSF 2.0</span><span class="ptag">ISO 27001</span>
-          <span class="ptag">PCI-DSS</span><span class="ptag">HIPAA</span>
-          <span class="ptag">GDPR</span>
-        </div>
+        <div class="p-tags"><span class="ptag">NIST CSF 2.0</span><span class="ptag">ISO 27001</span><span class="ptag">PCI-DSS</span><span class="ptag">HIPAA</span><span class="ptag">GDPR</span></div>
         <a href="https://github.com/Mihir-CySec/MULTI-FRAMEWORK-COMPLIANCE-CONTROL-MAPPING" target="_blank" class="p-link">View on GitHub <i class="fas fa-arrow-right"></i></a>
       </div>
 
     </div>
 
-    <!-- MORE PROJECTS BANNER -->
     <div class="more-projects rev">
       <p>Projects spanning <strong>cloud security, security operations, network forensics, and AI policy</strong> are available across my GitHub repositories — including hands-on lab work, detection engineering, and additional compliance tooling.</p>
-      <a href="https://github.com/Mihir-CySec?tab=repositories" target="_blank">
-        View All Repositories <i class="fas fa-arrow-right"></i>
-      </a>
+      <a href="https://github.com/Mihir-CySec?tab=repositories" target="_blank">View All Repositories <i class="fas fa-arrow-right"></i></a>
     </div>
 
   </div>
@@ -631,32 +491,20 @@
     <div class="cert-grid rev">
       <div class="cert-card">
         <div class="cert-ico"><i class="fas fa-shield-alt"></i></div>
-        <div>
-          <div class="cert-name">CompTIA Security+</div>
-          <div class="cert-by">CompTIA · SY0-701</div>
-          <span class="cert-badge cb-on">Active</span>
-        </div>
+        <div><div class="cert-name">CompTIA Security+</div><div class="cert-by">CompTIA · SY0-701</div><span class="cert-badge cb-on">Active</span></div>
       </div>
       <div class="cert-card">
         <div class="cert-ico"><i class="fas fa-lock"></i></div>
-        <div>
-          <div class="cert-name">Certified in Cybersecurity (CC)</div>
-          <div class="cert-by">ISC2</div>
-          <span class="cert-badge cb-on">Active</span>
-        </div>
+        <div><div class="cert-name">Certified in Cybersecurity (CC)</div><div class="cert-by">ISC2</div><span class="cert-badge cb-on">Active</span></div>
       </div>
       <div class="cert-card">
         <div class="cert-ico"><i class="fas fa-clipboard-check"></i></div>
-        <div>
-          <div class="cert-name">CISA — Certified Information Systems Auditor</div>
-          <div class="cert-by">ISACA</div>
-          <span class="cert-badge cb-ip">In Progress · 2026</span>
-        </div>
+        <div><div class="cert-name">CISA — Certified Information Systems Auditor</div><div class="cert-by">ISACA</div><span class="cert-badge cb-ip">In Progress · 2026</span></div>
       </div>
     </div>
     <div class="rev" style="margin-top:18px;">
       <a href="https://www.credly.com/users/mihir-trivedi.6005efe5/badges#credly" target="_blank" class="credly-btn">
-        <i class="fas fa-award"></i> View verified credentials on Credly
+        <i class="fas fa-award"></i> View Verified Credentials on Credly
       </a>
     </div>
   </div>
@@ -676,10 +524,7 @@
           <div class="edu-sch">Northeastern University · Khoury College of Computer Sciences</div>
           <div class="edu-det">Boston, MA · Expected Apr 2026</div>
         </div>
-        <div>
-          <div class="edu-yr">2024 – Present</div>
-          <div class="edu-gpa">3.6 GPA</div>
-        </div>
+        <div><div class="edu-yr">2024 – Present</div><div class="edu-gpa">3.6 GPA</div></div>
       </div>
       <div class="edu-card">
         <div>
@@ -687,10 +532,7 @@
           <div class="edu-sch">Swarnim Startup &amp; Innovation University</div>
           <div class="edu-det">Gandhinagar, India</div>
         </div>
-        <div>
-          <div class="edu-yr">2019 – 2023</div>
-          <div class="edu-gpa">8.85 CGPA</div>
-        </div>
+        <div><div class="edu-yr">2019 – 2023</div><div class="edu-gpa">8.85 CGPA</div></div>
       </div>
     </div>
   </div>
@@ -707,18 +549,10 @@
       <div>
         <p>Actively seeking entry-level roles in IT Audit, Technology Risk, and GRC across technology companies, fintech and financial institutions, Big 4 advisory firms, and startups. If you're hiring or want to connect — reach out directly.</p>
         <div class="cl-links">
-          <a href="/cdn-cgi/l/email-protection#a3d7d1cad5c6c7ca8dcecacbe3cdccd1d7cbc6c2d0d7c6d1cd8dc6c7d6" class="cl-link">
-            <i class="fas fa-envelope"></i> <span class="__cf_email__" data-cfemail="f98d8b908f9c9d90d7949091b997968b8d919c988a8d9c8b97d79c9d8c">[email&#160;protected]</span>
-          </a>
-          <a href="https://www.linkedin.com/in/mihir-cysec" target="_blank" class="cl-link">
-            <i class="fab fa-linkedin-in"></i> linkedin.com/in/mihir-cysec
-          </a>
-          <a href="https://github.com/Mihir-CySec" target="_blank" class="cl-link">
-            <i class="fab fa-github"></i> github.com/Mihir-CySec
-          </a>
-          <a href="https://www.credly.com/users/mihir-trivedi.6005efe5/badges#credly" target="_blank" class="cl-link">
-            <i class="fas fa-award"></i> Verified Credentials on Credly
-          </a>
+          <a href="mailto:trivedi.mih@northeastern.edu" class="cl-link"><i class="fas fa-envelope"></i> trivedi.mih@northeastern.edu</a>
+          <a href="https://www.linkedin.com/in/mihir-cysec" target="_blank" class="cl-link"><i class="fab fa-linkedin-in"></i> linkedin.com/in/mihir-cysec</a>
+          <a href="https://github.com/Mihir-CySec" target="_blank" class="cl-link"><i class="fab fa-github"></i> github.com/Mihir-CySec</a>
+          <a href="https://www.credly.com/users/mihir-trivedi.6005efe5/badges#credly" target="_blank" class="cl-link"><i class="fas fa-award"></i> Verified Credentials on Credly</a>
         </div>
       </div>
       <form class="cf" id="cf" action="https://formspree.io/f/mjvnzzqk" method="POST">
@@ -739,38 +573,60 @@
 </footer>
 <div class="toast" id="toast">Message sent successfully!</div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
+  // Nav scroll
   const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 40);
-    document.querySelectorAll('.rev').forEach(el => {
-      if (el.getBoundingClientRect().top < window.innerHeight - 70) el.classList.add('on');
-    });
   });
+
+  // Mobile menu
   document.getElementById('mb').addEventListener('click', () => {
     document.getElementById('nl').classList.toggle('open');
   });
+
+  // Smooth scroll for nav links
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
       e.preventDefault();
-      const t = document.querySelector(a.getAttribute('href'));
-      if (t) window.scrollTo({ top: t.offsetTop - 70, behavior: 'smooth' });
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) window.scrollTo({ top: target.offsetTop - 70, behavior: 'smooth' });
       document.getElementById('nl').classList.remove('open');
     });
   });
+
+  // Reveal with IntersectionObserver — fires correctly on load and scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('on');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.05, rootMargin: '0px 0px -20px 0px' });
+
+  document.querySelectorAll('.rev').forEach(el => observer.observe(el));
+
+  // Contact form
   const form = document.getElementById('cf');
   const toast = document.getElementById('toast');
   form.addEventListener('submit', async e => {
     e.preventDefault();
     try {
-      const r = await fetch(form.action, {
-        method: 'POST', body: new FormData(form),
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
         headers: { Accept: 'application/json' }
       });
-      if (r.ok) {
-        toast.classList.add('show'); form.reset();
+      if (res.ok) {
+        toast.classList.add('show');
+        form.reset();
         setTimeout(() => toast.classList.remove('show'), 3500);
       }
-    } catch { alert('Could not send message. Please try again.'); }
+    } catch {
+      alert('Could not send message. Please try again.');
+    }
   });
-  window.add
+</script>
+</body>
+</html>
